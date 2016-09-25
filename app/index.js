@@ -8,12 +8,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
+import Hero from './js/components/material-hero';
 import Navbar from './js/components/material-navbar';
 import Footer from './js/components/material-footer';
 
 const Main = () => (
   <main>
-    <Navbar/>
+    <Hero/>
     <Footer/>
   </main>
 );

@@ -2,7 +2,30 @@ a {
   transition: 0.2s ease;
 }
 
+/* Container Changes */
+.container.container-wide {
+  width: 100%;
+  padding: 0 2em;
+}
+
 /* Text Alterations */
+h1 {
+  font-size: 40px;
+  line-height: 40px;
+  margin: 0;
+  font-weight: 200;
+  max-width: 400px;
+  padding-bottom: 40px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 300;
+  max-width: 500px;
+}
+
 .text-thin {
   font-weight: 300;
 }
@@ -13,15 +36,34 @@ a {
 
 .brand-logo {
   font-family: 'Poiret One';
-  font-size: 30px;
-  color: #fff;
+  font-size: 35px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.brand-logo .subtitle {
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Hero */
+.hero {
+  background-size: cover;
+  background: #DC2424;
+  background: -webkit-linear-gradient(to right top, #DC2424 , #4A569D);
+  background: linear-gradient(to right top, #DC2424 , #4A569D);
+  position: relative;
+  height: 100vh;
+  padding-top: 190px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Navbar */
 nav.nav-background {
-  background: #1F1C2C; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #1F1C2C , #928DAB); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #1F1C2C , #928DAB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #1F1C2C;
+  background: -webkit-linear-gradient(to left, #1F1C2C , #928DAB);
+  background: linear-gradient(to left, #1F1C2C , #928DAB);
 }
 
 nav ul a {
@@ -36,9 +78,9 @@ footer.page-footer .footer-copyright {
 
 footer.page-footer {
   padding-top: 0;
-  background: #232526; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #232526 , #414345); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #232526 , #414345); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #232526;
+  background: -webkit-linear-gradient(to left, #232526 , #414345);
+  background: linear-gradient(to left, #232526 , #414345);
 }
 
 .footer-copyright div a {
