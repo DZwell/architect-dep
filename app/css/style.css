@@ -11,6 +11,23 @@ a {
   text-align: center;
 }
 
+.brand-logo {
+  font-family: 'Poiret One';
+  font-size: 30px;
+  color: #fff;
+}
+
+/* Navbar */
+nav.nav-background {
+  background: #1F1C2C; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #1F1C2C , #928DAB); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #1F1C2C , #928DAB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+nav ul a {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 /* Footer */
 footer.page-footer .footer-copyright {
   height: 200px;
