@@ -10,11 +10,13 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import Hero from './js/components/material-hero';
 import Navbar from './js/components/material-navbar';
+import Player from './js/components/architect-main';
 import Footer from './js/components/material-footer';
 
 const Main = () => (
   <main>
     <Hero/>
+    <Player/>
     <Footer/>
   </main>
 );
