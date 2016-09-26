@@ -26,6 +26,7 @@ const Main = () => (
     <Player
       title="Exploring the Sunken Glades"
       description="The forest of Nibel is dying. After a powerful storm sets a series of devastating events in motion, an unlikely hero must journey to find his courage and confront a dark nemesis to save his home. “Ori and the Blind Forest” tells the tale of a young orphan destined for heroics."
+      video="https://www.youtube.com/watch?v=_yZo9wSfIYY"
     />
     <Footer/>
   </main>
