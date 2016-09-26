@@ -26,14 +26,6 @@ h2 {
   max-width: 500px;
 }
 
-.text-thin {
-  font-weight: 300;
-}
-
-.text-centered {
-  text-align: center;
-}
-
 .brand-logo {
   font-family: 'Poiret One';
   font-size: 35px;
@@ -45,6 +37,18 @@ h2 {
   font-size: 18px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.6);
+}
+
+.full-width {
+  max-width: 100%;
+}
+
+.text-thin {
+  font-weight: 300;
+}
+
+.text-centered {
+  text-align: center;
 }
 
 /* Hero */
