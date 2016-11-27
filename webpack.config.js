@@ -6,8 +6,8 @@ const TARGET = process.env.npm_lifecycle_event;
 const webpack = require('webpack');
 
 const PATHS = {
-  app: path.join(__dirname, 'app'),
-  build: path.join(__dirname, 'build')
+  app: path.join(__dirname, 'src'),
+  build: path.join(__dirname, 'public')
 };
 
 const common = {
@@ -63,6 +63,6 @@ if (TARGET === 'start' || !TARGET){
   });
 }
 
-if (TARGET === 'build') {
+if (TARGET === 'public') {
   module.exports = merge(common, {});
 }
