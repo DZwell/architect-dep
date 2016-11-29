@@ -7,20 +7,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import Mosaic from './js/components/basic-player';
+import AudioPlayer from './js/components/basic-player';
 
 const PlayerContainer = () => (
-  <section>
+  <div>
     <div>
-      <Mosaic
-        hover={true}
-        margin={false}
-        playClass="fa fa-play"
-        pauseClass="fa fa-pause"
+      <AudioPlayer
         source="audio/1.wav"
       />
     </div>
-  </section>
+  </div>
 );
 
 ReactDOM.render(<PlayerContainer/>, document.getElementById('root'));

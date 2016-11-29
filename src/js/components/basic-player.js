@@ -6,56 +6,26 @@ import _util_ from '../lib/utilities';
 
 const Mosaic = React.createClass({
   propTypes: {
-    durationClass : React.PropTypes.string,
-    hover         : React.PropTypes.bool,
-    hoverClass    : React.PropTypes.string,
-    loop          : React.PropTypes.bool,
-    margin        : React.PropTypes.bool,
-    playClass     : React.PropTypes.string,
-    playheadClass : React.PropTypes.string,
-    playerClass   : React.PropTypes.string,
-    playerId      : React.PropTypes.string,
-    pauseClass    : React.PropTypes.string,
-    source        : React.PropTypes.string.isRequired,
-    timelineClass : React.PropTypes.string,
-    title         : React.PropTypes.string,
-    titleClass    : React.PropTypes.string
+    source          : React.PropTypes.string.isRequired
   },
 
-  scrubberClicked : false,
-  duration        : '',
-  audioNode       : '',
-  playButton      : '',
-  playHead        : '',
-  timeline        : '',
-  timelineWidth   : '',
-  sourceDuration  : '',
-
-  getDefaultProps : function() {
-    return {
-      durationClass : 'mosaic-duration',
-      hover         : false,
-      hoverClass    : 'mosaic-hover',
-      loop          : false,
-      margin        : false,
-      playClass     : 'mosaic-play-button',
-      playheadClass : 'mosaic-playhead',
-      playerClass   : 'mosaic-player',
-      playerId      : 'mosaic-',
-      pauseClass    : 'mosaic-pause-button',
-      timelineClass : 'mosaic-timeline',
-      titleClass    : 'mosaic-title'
-    }
-  },
+  scrubberClicked   : false,
+  duration          : '',
+  audioNode         : '',
+  playButton        : '',
+  playHead          : '',
+  timeline          : '',
+  timelineWidth     : '',
+  sourceDuration    : '',
 
   componentDidMount : function() {
-    const that         = ReactDOM.findDOMNode(this);
+    const that         = ReactDOM.findDOMNode(this).children[0].children[0];
     this.audioNode     = that.children[0];
-    this.duration      = that.children[1].children[1].children[2];
-    this.hover         = that.children[1].children[1].children[0];
-    this.playButton    = that.children[1].children[0];
-    this.playHead      = that.children[1].children[1].children[1];
-    this.timeline      = that.children[1].children[1];
+    this.duration      = that.children[3];
+    this.hover         = that.children[2].children[0];
+    this.playButton    = that.children[1].children[0].children[0];
+    this.playHead      = that.children[2].children[0].children[0];
+    this.timeline      = that.children[2];
     this.timelineWidth = this.timeline.offsetWidth - this.playHead.offsetWidth;
 
     window.addEventListener('mouseup', this.mouseUp, false);
@@ -94,12 +64,12 @@ const Mosaic = React.createClass({
   play : function() {
     if (this.audioNode.paused) {
       this.audioNode.play();
-      this.playButton.classList = '';
-      this.playButton.classList = this.props.pauseClass;
+      this.playButton.children[0].classList = '';
+      this.playButton.children[0].classList = 'fa fa-pause';
     } else {
       this.audioNode.pause();
-      this.playButton.classList = '';
-      this.playButton.classList = this.props.playClass;
+      this.playButton.children[0].classList = '';
+      this.playButton.children[0].classList = 'fa fa-play';
     };
   },
 
@@ -107,8 +77,8 @@ const Mosaic = React.createClass({
     this.duration.innerHTML = _util_.handleTime(this.audioNode.currentTime) + ' / ' + _util_.handleTime(this.audioNode.duration);
 
     if (this.audioNode.currentTime === this.sourceDuration) {
-      this.playButton.classList = '';
-      this.playButton.classList = this.props.playClass;
+      this.playButton.children[0].classList = '';
+      this.playButton.children[0].classList = 'fa fa-play';
     };
   },
 
@@ -150,13 +120,7 @@ const Mosaic = React.createClass({
   moveplayhead : function(e) {
     let positionOffset = _util_.handleOffsetParent(this.timeline);
     let newMargLeft = e.pageX - positionOffset;
-    let n;
-
-    if (this.props.margin) {
-      n = this.playHead.style.paddingLeft;
-    } else {
-      n = this.playHead.style.width;
-    };
+    let n = this.playHead.style.width;
 
     if (newMargLeft >= 0 && newMargLeft <= this.timelineWidth) {
       n = newMargLeft + 'px';
@@ -177,28 +141,23 @@ const Mosaic = React.createClass({
 
   render : function() {
     return (
-      <div className="mosaic-audio">
+      <div className="mosaic-player">
         <div className="mosaic-type-single">
           <div className="mosaic-gui mosaic-interface mosaic-player">
-            <audio preload="auto">
-              <source src="audio/1.wav"/>
+            <audio id={_util_.newId('audio-')} preload="auto" onDurationChange={this.returnDuration} onTimeUpdate={this.updateTime} loop={this.props.loop}>
+              <source src={this.props.source}/>
             </audio>
             <ul className="mosaic-controls">
-              <li>
-                <a className="mosaic-play">
+              <li className="play-button-container">
+                <a className="mosaic-play" onClick={this.play}>
                   <i className="fa fa-play"></i>
                 </a>
               </li>
             </ul>
-            <div className="mosaic-progress">
+            <div className="mosaic-progress" onMouseDown={this.mouseDown}>
               <div className="mosaic-seek-bar">
-                <div className="mosaic-play-bar"></div>
+                <div className="mosaic-play-bar" onMouseDown={this.mouseDown}></div>
               </div>
-            </div>
-            <div className="mosaic-title">
-              <ul>
-                <li>Winter</li>
-              </ul>
             </div>
             <div className="mosaic-time-holder">
               <span></span>
