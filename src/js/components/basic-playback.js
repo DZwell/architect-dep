@@ -4,7 +4,7 @@ import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import _util_ from '../lib/utilities';
 
-const Mosaic = React.createClass({
+const Basic = React.createClass({
   propTypes: {
     desc            : React.PropTypes.string.isRequired,
     source          : React.PropTypes.string.isRequired
@@ -173,4 +173,4 @@ const Mosaic = React.createClass({
   }
 });
 
-export default Mosaic;
+export default Basic;
