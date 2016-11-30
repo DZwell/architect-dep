@@ -8,13 +8,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import AudioPlayer from './js/components/basic-player';
+import Basic from './js/components/basic-playback';
 import examples from './js/lib/example-data';
 
 const PlayerContainer = () => (
   <div>
     <div>
-      <AudioPlayer
+      <Basic
         desc={examples[0].desc}
         source={examples[0].src}
       />
