@@ -2,6 +2,7 @@
 
 import './css/style.css';
 import './css/basic-player.css';
+import './js/lib/player-list-select';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
